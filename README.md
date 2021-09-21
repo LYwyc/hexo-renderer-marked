@@ -6,7 +6,19 @@
 [![NPM Dependencies](https://img.shields.io/librariesio/release/npm/hexo-renderer-marked.svg)](https://libraries.io/npm/hexo-renderer-marked)
 
 Add support for [Markdown]. This plugin uses [marked] as its render engine.
+## 本分支由Xu-pixel添加，
+解决markdown编辑器和渲染结果路径不同而导致的写作体验不佳问题，
+在
+```yaml
+marked:
+  prependRoot: true
+  postAsset: true
+```
+的配置下,hexo-rendered-marked将图片渲染为绝对路径=>(‘/blogtitle/image.png’).
 
+如果在前面加点(.)就会变成相对路径=>（‘/年/月/日/blogtitle/blogtitle/image.png’）,这个该死的blogtitle出来了两边，很烦，所以我修改了（强行）.
+
+把输出路径统一成=>(‘./blogtitle/image.png’),浏览器里的结果就是=>('年/月/日/blogtitle/image.png')
 ## Installation
 
 ``` bash
